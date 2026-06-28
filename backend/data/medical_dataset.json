@@ -1,0 +1,240 @@
+[
+  {
+    "disease": "Viral Infection",
+    "symptoms": ["fever", "body pain", "fatigue"],
+    "severity": "Mild",
+    "description": "A viral infection usually causes fever, body pain, and fatigue.",
+    "medical_suggestion": [
+      "Take adequate rest",
+      "Drink plenty of fluids",
+      "Monitor your temperature"
+    ],
+    "precaution": [
+      "Stay hydrated",
+      "Eat nutritious food",
+      "Avoid strenuous activity"
+    ],
+    "hospital_required": false,
+    "hospital": []
+  },
+  {
+    "disease": "Common Cold",
+    "symptoms": ["cough", "runny nose", "sneezing", "sore throat"],
+    "severity": "Mild",
+    "description": "Common cold is a viral infection affecting the upper respiratory tract.",
+    "medical_suggestion": [
+      "Drink warm fluids",
+      "Take sufficient rest",
+      "Steam inhalation"
+    ],
+    "precaution": [
+      "Wash hands frequently",
+      "Stay hydrated"
+    ],
+    "hospital_required": false,
+    "hospital": []
+  },
+  {
+    "disease": "Dengue",
+    "symptoms": ["high fever", "rash", "vomiting", "joint pain"],
+    "severity": "Serious",
+    "description": "Dengue is a mosquito-borne viral disease.",
+    "medical_suggestion": [
+      "Drink ORS",
+      "Seek immediate medical attention"
+    ],
+    "precaution": [
+      "Avoid aspirin unless advised by a doctor"
+    ],
+    "hospital_required": true,
+    "hospital": [
+      "Vijayanagara Institute of Medical Sciences (VIMS), Ballari",
+      "Ballari District Hospital",
+      "KIMS Hospital, Ballari"
+    ]
+  },
+  {
+    "disease": "Malaria",
+    "symptoms": ["high fever", "chills", "sweating", "headache"],
+    "severity": "Serious",
+    "description": "Malaria is caused by parasites transmitted through mosquito bites.",
+    "medical_suggestion": [
+      "Consult a doctor immediately",
+      "Take prescribed antimalarial medicines",
+      "Drink plenty of fluids"
+    ],
+    "precaution": [
+      "Use mosquito nets",
+      "Avoid mosquito bites"
+    ],
+    "hospital_required": true,
+    "hospital": [
+      "VIMS, Ballari",
+      "Ballari District Hospital"
+    ]
+  },
+  {
+    "disease": "Typhoid",
+    "symptoms": ["high fever", "stomach pain", "weakness", "loss of appetite"],
+    "severity": "Serious",
+    "description": "Typhoid is a bacterial infection caused by contaminated food and water.",
+    "medical_suggestion": [
+      "Consult a doctor",
+      "Take antibiotics only as prescribed",
+      "Drink clean water"
+    ],
+    "precaution": [
+      "Maintain hygiene",
+      "Wash hands before eating"
+    ],
+    "hospital_required": true,
+    "hospital": [
+      "VIMS, Ballari",
+      "KIMS Hospital, Ballari"
+    ]
+  },
+  {
+    "disease": "Migraine",
+    "symptoms": ["headache", "nausea", "vomiting"],
+    "severity": "Moderate",
+    "description": "Migraine is a neurological condition that causes severe headaches.",
+    "medical_suggestion": [
+      "Rest in a quiet room",
+      "Drink enough water"
+    ],
+    "precaution": [
+      "Avoid stress",
+      "Get enough sleep"
+    ],
+    "hospital_required": false,
+    "hospital": []
+  },
+  {
+    "disease": "Asthma",
+    "symptoms": ["shortness of breath", "wheezing", "cough"],
+    "severity": "Serious",
+    "description": "Asthma causes inflammation of the airways, making breathing difficult.",
+    "medical_suggestion": [
+      "Use prescribed inhalers",
+      "Seek medical help if breathing worsens"
+    ],
+    "precaution": [
+      "Avoid dust and smoke",
+      "Take medicines regularly"
+    ],
+    "hospital_required": true,
+    "hospital": [
+      "VIMS, Ballari",
+      "Ballari District Hospital"
+    ]
+  },
+  {
+    "disease": "Food Poisoning",
+    "symptoms": ["vomiting", "diarrhea", "stomach pain", "nausea"],
+    "severity": "Moderate",
+    "description": "Food poisoning is caused by consuming contaminated food.",
+    "medical_suggestion": [
+      "Drink ORS",
+      "Stay hydrated",
+      "Consult a doctor if symptoms continue"
+    ],
+    "precaution": [
+      "Eat freshly cooked food",
+      "Avoid contaminated food"
+    ],
+    "hospital_required": false,
+    "hospital": []
+  },
+  {
+    "disease": "COVID-19",
+    "symptoms": ["fever", "cough", "loss of smell", "fatigue"],
+    "severity": "Serious",
+    "description": "COVID-19 is a viral respiratory infection caused by SARS-CoV-2.",
+    "medical_suggestion": [
+      "Isolate yourself",
+      "Drink plenty of fluids",
+      "Consult a doctor if symptoms worsen"
+    ],
+    "precaution": [
+      "Wear a mask",
+      "Wash hands regularly",
+      "Maintain social distancing"
+    ],
+    "hospital_required": true,
+    "hospital": [
+      "VIMS, Ballari",
+      "Ballari District Hospital"
+    ]
+  },
+  {
+    "disease": "Influenza",
+    "symptoms": ["fever", "cough", "body pain", "fatigue"],
+    "severity": "Moderate",
+    "description": "Influenza is a contagious viral infection affecting the respiratory system.",
+    "medical_suggestion": [
+      "Take adequate rest",
+      "Drink warm fluids",
+      "Consult a doctor if symptoms persist"
+    ],
+    "precaution": [
+      "Wash hands frequently",
+      "Avoid close contact with sick people"
+    ],
+    "hospital_required": false,
+    "hospital": []
+  },
+  {
+    "disease": "Pneumonia",
+    "symptoms": ["fever", "cough", "shortness of breath", "chest pain"],
+    "severity": "Serious",
+    "description": "Pneumonia is an infection that inflames the air sacs in one or both lungs.",
+    "medical_suggestion": [
+      "Consult a doctor immediately",
+      "Take prescribed medicines",
+      "Get enough rest"
+    ],
+    "precaution": [
+      "Avoid smoking",
+      "Stay hydrated"
+    ],
+    "hospital_required": true,
+    "hospital": [
+      "VIMS, Ballari",
+      "KIMS Hospital, Ballari"
+    ]
+  },
+  {
+    "disease": "Diabetes",
+    "symptoms": ["fatigue", "weakness", "loss of appetite"],
+    "severity": "Moderate",
+    "description": "Diabetes is a condition that affects how the body processes blood sugar.",
+    "medical_suggestion": [
+      "Monitor blood sugar",
+      "Follow a healthy diet",
+      "Consult your doctor regularly"
+    ],
+    "precaution": [
+      "Exercise regularly",
+      "Avoid excess sugar"
+    ],
+    "hospital_required": false,
+    "hospital": []
+  },
+  {
+    "disease": "Hypertension",
+    "symptoms": ["headache", "dizziness", "fatigue"],
+    "severity": "Moderate",
+    "description": "Hypertension is persistently high blood pressure.",
+    "medical_suggestion": [
+      "Reduce salt intake",
+      "Exercise regularly",
+      "Take prescribed medicines"
+    ],
+    "precaution": [
+      "Avoid stress",
+      "Maintain a healthy weight"
+    ],
+    "hospital_required": false,
+    "hospital": []
+  }
+]

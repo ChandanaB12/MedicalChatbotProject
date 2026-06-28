@@ -1,0 +1,19 @@
+text,intent
+I have fever,disease_prediction
+I have cough,disease_prediction
+I have headache,disease_prediction
+I have vomiting,disease_prediction
+I have stomach pain,disease_prediction
+I have body pain,disease_prediction
+What is dengue?,disease_information
+What is malaria?,disease_information
+Tell me about typhoid,disease_information
+Suggest hospital,hospital_recommendation
+Nearest hospital,hospital_recommendation
+Hospital near me,hospital_recommendation
+Hello,greeting
+Hi,greeting
+Good morning,greeting
+Thank you,goodbye
+Thanks,goodbye
+Bye,goodbye
