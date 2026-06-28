@@ -6,6 +6,8 @@ from load_dataset import load_disease_dataset
 from symptom_extractor import extract_symptoms
 from ml.predict_intent import predict_intent
 from emergency import check_emergency
+from disease_info import get_disease_info
+from chat_history import save_chat, get_history
 
 app = FastAPI()
 
@@ -31,6 +33,7 @@ def predict(data: SymptomRequest):
 
     # Check for emergency symptoms first
     if check_emergency(data.symptom):
+        save_chat(data.symptom, "Emergency")
         return {
             "prediction": "Emergency",
             "severity": "Critical",
@@ -52,6 +55,19 @@ def predict(data: SymptomRequest):
 
         # Step 1: Predict the user's intent using ML
     intent = predict_intent(data.symptom)
+        # Disease Information
+    disease_info = get_disease_info(data.symptom)
+
+    if disease_info:
+        return {
+            "prediction": "Disease Information",
+            "severity": "",
+            "description": disease_info,
+            "medical_suggestion": [],
+            "precaution": [],
+            "hospital_required": False,
+            "hospital": []
+        }
 
     print("Predicted Intent:", intent)
     # Greeting
@@ -104,7 +120,7 @@ def predict(data: SymptomRequest):
     if not symptoms:
         symptoms = [s.strip().lower() for s in data.symptom.split(",")]
 
-    best_match = None
+        best_match = None
     max_matches = 0
 
     for disease in disease_dataset:
@@ -119,7 +135,11 @@ def predict(data: SymptomRequest):
             max_matches = matches
             best_match = disease
 
+    # If a disease is found, save it in chat history
     if best_match:
+
+        save_chat(data.symptom, best_match["disease"])
+
         return {
             "prediction": best_match["disease"],
             "severity": best_match["severity"],
@@ -129,6 +149,9 @@ def predict(data: SymptomRequest):
             "hospital_required": best_match["hospital_required"],
             "hospital": best_match["hospital"]
         }
+
+    # If no disease is found
+    save_chat(data.symptom, "Consult Doctor")
 
     return {
         "prediction": "Consult Doctor",
@@ -143,3 +166,8 @@ def predict(data: SymptomRequest):
         "hospital_required": False,
         "hospital": []
     }
+
+
+@app.get("/history")
+def history():
+    return get_history()
