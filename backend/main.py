@@ -8,6 +8,9 @@ from ml.predict_intent import predict_intent
 from emergency import check_emergency
 from disease_info import get_disease_info
 from chat_history import save_chat, get_history
+from database import SessionLocal
+from models import User
+from auth import RegisterUser,LoginUser
 
 app = FastAPI()
 
@@ -27,6 +30,49 @@ class SymptomRequest(BaseModel):
 @app.get("/")
 def home():
     return {"message": "Healthcare AI Backend Running"}
+@app.post("/register")
+def register(user: RegisterUser):
+
+    db = SessionLocal()
+
+    existing_user = db.query(User).filter(User.email == user.email).first()
+
+    if existing_user:
+        db.close()
+        return {"message": "Email already registered"}
+
+    new_user = User(
+        name=user.name,
+        email=user.email,
+        password=user.password
+    )
+
+    db.add(new_user)
+    db.commit()
+    db.close()
+
+    return {"message": "Registration Successful"}
+@app.post("/login")
+def login(user: LoginUser):
+
+    db = SessionLocal()
+
+    existing_user = db.query(User).filter(
+        User.email == user.email,
+        User.password == user.password
+    ).first()
+
+    db.close()
+
+    if existing_user:
+        return {
+            "message": "Login Successful",
+            "user": existing_user.name
+        }
+
+    return {
+        "message": "Invalid Email or Password"
+    }
 
 @app.post("/predict")
 def predict(data: SymptomRequest):
