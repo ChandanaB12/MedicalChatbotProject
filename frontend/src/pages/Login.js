@@ -11,10 +11,13 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("https://medicalchatbotproject.onrender.com/login"), {
-        email: email,
-        password: password,
-      });
+      const res = await axios.post(
+  "https://medicalchatbotproject.onrender.com/login",
+  {
+    email: email,
+    password: password,
+  }
+);
 
       alert(res.data.message);
 if (res.data.message === "Login Successful") {

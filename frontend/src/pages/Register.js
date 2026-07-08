@@ -3,12 +3,7 @@ import axios from "axios";
 import { useNavigate,Link } from "react-router-dom";
 
 function Register() {
-    <p className="text-center mt-4">
-  Already have an account?{" "}
-  <Link to="/" className="text-green-600 font-semibold">
-    Login
-  </Link>
-</p>
+    
 
   const navigate = useNavigate();
 
@@ -20,11 +15,14 @@ function Register() {
 
     try {
 
-      const res = await axios.post("https://medicalchatbotproject.onrender.com/register"), {
-        name,
-        email,
-        password
-      };
+      const res = await axios.post(
+  "https://medicalchatbotproject.onrender.com/register",
+  {
+    name,
+    email,
+    password
+  }
+);
 
       alert(res.data.message);
 
@@ -79,6 +77,13 @@ function Register() {
         >
           Register
         </button>
+
+        <p className="text-center mt-4">
+  Already have an account?{" "}
+  <Link to="/" className="text-green-600 font-semibold">
+    Login
+  </Link>
+</p>
 
       </div>
 
