@@ -1,7 +1,4 @@
 EMERGENCY_KEYWORDS = [
-    "chest pain",
-    "difficulty breathing",
-    "shortness of breath",
     "unconscious",
     "severe bleeding",
     "seizure",

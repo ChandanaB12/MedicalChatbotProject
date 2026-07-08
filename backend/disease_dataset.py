@@ -38,24 +38,34 @@ disease_dataset = [
     },
 
     {
-        "disease": "Dengue",
-        "symptoms": ["high fever", "rash", "vomiting", "joint pain"],
-        "severity": "Serious",
-        "description": "Dengue is a mosquito-borne viral disease.",
-        "medical_suggestion": [
-            "Drink ORS",
-            "Seek immediate medical attention"
-        ],
-        "precaution": [
-            "Avoid aspirin unless advised by a doctor"
-        ],
-        "hospital_required": True,
-        "hospital": [
-            "Vijayanagara Institute of Medical Sciences (VIMS), Ballari",
-            "Ballari District Hospital",
-            "KIMS Hospital, Ballari"
-        ]
-    },
+    "disease": "Dengue",
+    "symptoms": [
+        " fever",
+        "headache",
+        "joint pain",
+        "muscle pain",
+        "skin rash",
+        "fatigue"
+    ],
+    "severity": "Serious",
+    "description": "Dengue is a mosquito-borne viral disease that causes high fever, severe headache, joint pain, muscle pain, and rash.",
+    "medical_suggestion": [
+        "Consult a doctor immediately",
+        "Drink plenty of fluids",
+        "Take medicines only as prescribed"
+    ],
+    "precaution": [
+        "Avoid mosquito bites",
+        "Use mosquito nets",
+        "Keep surroundings clean"
+    ],
+    "hospital_required": True,
+    "hospital": [
+    "VIMS Hospital, Ballari",
+    "Ballari District Hospital",
+    "KIMS Hospital, Ballari"
+],
+},
 
     {
         "disease": "Malaria",
@@ -165,11 +175,13 @@ disease_dataset = [
             "Wash hands frequently"
         ],
         "hospital_required": False,
-        "hospital": []
+        "hospital": [
+    "VIMS Hospital, Ballari",
+    "Ballari District Hospital"
+]
     },
-
-    {
-        "disease": "Pneumonia",
+{
+    "disease": "Pneumonia",
         "symptoms": ["fever", "cough", "chest pain", "difficulty breathing"],
         "severity": "Serious",
         "description": "Pneumonia is an infection that inflames the lungs.",
@@ -186,7 +198,244 @@ disease_dataset = [
             "VIMS Hospital, Ballari",
             "Ballari District Hospital",
             "KIMS Hospital, Ballari"
-        ]
-    }
+        ],
+},
+{
+    "disease": "Diabetes",
+    "symptoms": [
+        "frequent urination",
+        "increased thirst",
+        "fatigue",
+        "blurred vision"
+    ],
+    "severity": "Moderate",
+    "description": "Diabetes is a chronic condition that causes high blood sugar levels.",
+    "medical_suggestion": [
+        "Consult a doctor",
+        "Monitor blood sugar regularly",
+        "Take prescribed medicines"
+    ],
+    "precaution": [
+        "Avoid sugary foods",
+        "Exercise regularly",
+        "Maintain a healthy diet"
+    ],
+    "hospital_required": False,
+    "hospital": []
+},
 
+{
+    "disease": "Hypertension",
+    "symptoms": [
+        "high blood pressure",
+        "headache",
+        "dizziness",
+        "chest pain"
+    ],
+    "severity": "Moderate",
+    "description": "Hypertension is a condition in which blood pressure remains consistently high.",
+    "medical_suggestion": [
+        "Consult a doctor",
+        "Monitor blood pressure",
+        "Reduce salt intake"
+    ],
+    "precaution": [
+        "Exercise regularly",
+        "Reduce stress",
+        "Eat healthy food"
+    ],
+    "hospital_required": False,
+    "hospital": []
+},
+
+{
+    "disease": "Influenza",
+    "symptoms": [
+        "fever",
+        "cough",
+        "sore throat",
+        "body pain",
+        "fatigue"
+    ],
+    "severity": "Moderate",
+    "description": "Influenza (flu) is a viral infection that affects the respiratory system.",
+    "medical_suggestion": [
+        "Take adequate rest",
+        "Drink plenty of fluids",
+        "Consult a doctor if symptoms worsen"
+    ],
+    "precaution": [
+        "Wash hands regularly",
+        "Avoid close contact with sick people",
+        "Wear a mask if necessary"
+    ],
+    "hospital_required": False,
+    "hospital": []
+},
+
+{
+    "disease": "Gastritis",
+    "symptoms": [
+        "stomach pain",
+        "nausea",
+        "vomiting",
+        "loss of appetite"
+    ],
+    "severity": "Moderate",
+    "description": "Gastritis is inflammation of the stomach lining.",
+    "medical_suggestion": [
+        "Eat light meals",
+        "Avoid spicy foods",
+        "Consult a doctor if pain persists"
+    ],
+    "precaution": [
+        "Avoid alcohol",
+        "Eat on time",
+        "Reduce stress"
+    ],
+    "hospital_required": False,
+    "hospital": []
+},
+
+{
+    "disease": "Allergy",
+    "symptoms": [
+        "sneezing",
+        "skin rash",
+        "runny nose",
+        "itching"
+    ],
+    "severity": "Mild",
+    "description": "An allergy is an immune system reaction to certain substances.",
+    "medical_suggestion": [
+        "Avoid allergens",
+        "Consult a doctor if symptoms become severe"
+    ],
+    "precaution": [
+        "Keep surroundings clean",
+        "Wear a mask in dusty areas"
+    ],
+    "hospital_required": False,
+    "hospital": []
+},
+
+{
+    "disease": "Sinusitis",
+    "symptoms": ["headache", "runny nose", "facial pain", "cough"],
+    "severity": "Moderate",
+    "description": "Sinusitis is inflammation of the sinuses caused by infection or allergies.",
+    "medical_suggestion": [
+        "Steam inhalation",
+        "Drink warm fluids",
+        "Consult a doctor if symptoms persist"
+    ],
+    "precaution": [
+        "Avoid dust",
+        "Stay hydrated"
+    ],
+    "hospital_required": False,
+    "hospital": []
+},
+
+{
+    "disease": "Chickenpox",
+    "symptoms": ["fever", "skin rash", "itching", "fatigue"],
+    "severity": "Moderate",
+    "description": "Chickenpox is a contagious viral infection causing itchy rashes.",
+    "medical_suggestion": [
+        "Take adequate rest",
+        "Avoid scratching",
+        "Consult a doctor"
+    ],
+    "precaution": [
+        "Stay isolated",
+        "Maintain hygiene"
+    ],
+    "hospital_required": False,
+    "hospital": []
+},
+
+{
+    "disease": "Bronchitis",
+    "symptoms": ["cough", "shortness of breath", "chest pain", "fatigue"],
+    "severity": "Moderate",
+    "description": "Bronchitis is inflammation of the bronchial tubes causing persistent cough.",
+    "medical_suggestion": [
+        "Drink warm fluids",
+        "Take adequate rest",
+        "Consult a doctor"
+    ],
+    "precaution": [
+        "Avoid smoking",
+        "Avoid dust"
+    ],
+    "hospital_required": False,
+    "hospital": []
+},
+
+{
+    "disease": "Tuberculosis",
+    "symptoms": ["cough", "fever", "weight loss", "night sweats"],
+    "severity": "Serious",
+    "description": "Tuberculosis is a bacterial infection that mainly affects the lungs.",
+    "medical_suggestion": [
+        "Consult a doctor immediately",
+        "Complete the full course of medication"
+    ],
+    "precaution": [
+        "Wear a mask",
+        "Avoid close contact with others"
+    ],
+    "hospital_required": True,
+    "hospital": [
+    "VIMS Hospital, Ballari",
+    "Ballari District Hospital"
+]
+},
+
+{
+    "disease": "Urinary Tract Infection (UTI)",
+    "symptoms": ["burning urination", "frequent urination", "fever", "lower abdominal pain"],
+    "severity": "Moderate",
+    "description": "A UTI is a bacterial infection affecting the urinary system.",
+    "medical_suggestion": [
+        "Drink plenty of water",
+        "Consult a doctor",
+        "Take prescribed antibiotics"
+    ],
+    "precaution": [
+        "Maintain hygiene",
+        "Drink enough water"
+    ],
+    "hospital_required": False,
+    "hospital": []
+},
+
+{
+    "disease": "Appendicitis",
+    "symptoms": [
+        "lower right abdominal pain",
+        "fever",
+        "nausea",
+        "vomiting",
+        "loss of appetite"
+    ],
+    "severity": "Serious",
+    "description": "Appendicitis is inflammation of the appendix and requires immediate medical evaluation.",
+    "medical_suggestion": [
+        "Consult a surgeon immediately",
+        "Avoid eating or drinking until evaluated",
+        "Go to the nearest hospital"
+    ],
+    "precaution": [
+        "Do not ignore severe abdominal pain",
+        "Seek emergency medical care"
+    ],
+    "hospital_required": True,
+    "hospital": [
+        "VIMS Hospital, Ballari",
+        "Ballari District Hospital",
+        "KIMS Hospital, Ballari"
+    ]
+},
 ]

@@ -36,7 +36,12 @@
   },
   {
     "disease": "Dengue",
-    "symptoms": ["high fever", "rash", "vomiting", "joint pain"],
+    "symptoms": [
+      "high fever",
+      "rash",
+      "vomiting",
+      "joint pain"
+    ],
     "severity": "Serious",
     "description": "Dengue is a mosquito-borne viral disease.",
     "medical_suggestion": [
@@ -48,12 +53,14 @@
     ],
     "hospital_required": true,
     "hospital": [
-      "Vijayanagara Institute of Medical Sciences (VIMS), Ballari",
+      "VIMS, Ballari",
       "Ballari District Hospital",
       "KIMS Hospital, Ballari"
     ]
   },
-  {
+    
+{
+    
     "disease": "Malaria",
     "symptoms": ["high fever", "chills", "sweating", "headache"],
     "severity": "Serious",
@@ -73,6 +80,7 @@
       "Ballari District Hospital"
     ]
   },
+
   {
     "disease": "Typhoid",
     "symptoms": ["high fever", "stomach pain", "weakness", "loss of appetite"],
@@ -128,7 +136,7 @@
       "Ballari District Hospital"
     ]
   },
-  {
+    {
     "disease": "Food Poisoning",
     "symptoms": ["vomiting", "diarrhea", "stomach pain", "nausea"],
     "severity": "Moderate",
@@ -203,9 +211,14 @@
       "KIMS Hospital, Ballari"
     ]
   },
-  {
+    {
     "disease": "Diabetes",
-    "symptoms": ["fatigue", "weakness", "loss of appetite"],
+    "symptoms": [
+      "frequent urination",
+      "increased thirst",
+      "fatigue",
+      "blurred vision"
+    ],
     "severity": "Moderate",
     "description": "Diabetes is a condition that affects how the body processes blood sugar.",
     "medical_suggestion": [
@@ -222,7 +235,11 @@
   },
   {
     "disease": "Hypertension",
-    "symptoms": ["headache", "dizziness", "fatigue"],
+    "symptoms": [
+      "headache",
+      "dizziness",
+      "fatigue"
+    ],
     "severity": "Moderate",
     "description": "Hypertension is persistently high blood pressure.",
     "medical_suggestion": [
@@ -236,5 +253,52 @@
     ],
     "hospital_required": false,
     "hospital": []
+  },
+  {
+    "disease": "Urinary Tract Infection (UTI)",
+    "symptoms": [
+      "burning urination",
+      "frequent urination",
+      "fever",
+      "lower abdominal pain"
+    ],
+    "severity": "Moderate",
+    "description": "A urinary tract infection (UTI) is a bacterial infection affecting the urinary system.",
+    "medical_suggestion": [
+      "Drink plenty of water",
+      "Consult a doctor",
+      "Take prescribed antibiotics"
+    ],
+    "precaution": [
+      "Maintain good personal hygiene",
+      "Drink enough water",
+      "Do not hold urine for long periods"
+    ],
+    "hospital_required": false,
+    "hospital": []
+  },
+  {
+    "disease": "Gastritis",
+    "symptoms": [
+      "stomach pain",
+      "nausea",
+      "vomiting",
+      "loss of appetite"
+    ],
+    "severity": "Moderate",
+    "description": "Gastritis is inflammation of the stomach lining.",
+    "medical_suggestion": [
+      "Eat light meals",
+      "Avoid spicy food",
+      "Consult a doctor if pain persists"
+    ],
+    "precaution": [
+      "Avoid alcohol",
+      "Eat meals on time",
+      "Reduce stress"
+    ],
+    "hospital_required": false,
+    "hospital": []
   }
 ]
+

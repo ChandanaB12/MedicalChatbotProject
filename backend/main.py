@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from load_dataset import load_disease_dataset
 from symptom_extractor import extract_symptoms
+
 from ml.predict_intent import predict_intent
 from emergency import check_emergency
 from disease_info import get_disease_info
@@ -11,6 +12,11 @@ from chat_history import save_chat, get_history
 from database import SessionLocal
 from models import User
 from auth import RegisterUser,LoginUser
+from specialist import get_specialist
+from hospital import get_hospitals
+from medicine import get_medicine
+from diet import get_diet
+from disease_predictor import predict_disease
 
 app = FastAPI()
 
@@ -77,7 +83,7 @@ def login(user: LoginUser):
 @app.post("/predict")
 def predict(data: SymptomRequest):
 
-    # Check for emergency symptoms first
+    # Emergency Detection
     if check_emergency(data.symptom):
         save_chat(data.symptom, "Emergency")
         return {
@@ -98,10 +104,15 @@ def predict(data: SymptomRequest):
                 "KIMS Hospital, Ballari"
             ]
         }
+    
 
-        # Step 1: Predict the user's intent using ML
+
+
+    # Predict Intent
     intent = predict_intent(data.symptom)
-        # Disease Information
+    
+
+    # Disease Information
     disease_info = get_disease_info(data.symptom)
 
     if disease_info:
@@ -115,7 +126,6 @@ def predict(data: SymptomRequest):
             "hospital": []
         }
 
-    print("Predicted Intent:", intent)
     # Greeting
     if intent == "greeting":
         return {
@@ -155,47 +165,51 @@ def predict(data: SymptomRequest):
                 "KIMS Hospital, Ballari"
             ]
         }
+    # Validate number of symptoms
+    symptom_list = extract_symptoms(data.symptom)
 
-    # Load disease dataset
-    disease_dataset = load_disease_dataset()
+   
+    if len(symptom_list) < 1:
+      return {
+        "prediction": "More Symptoms Required",
+        "severity": "",
+        "description": "Please enter at least 2 symptoms separated by commas for a more accurate prediction.",
+        "medical_suggestion": [
+            "Example: fever, cough"
+        ],
+        "precaution": [],
+        "hospital_required": False,
+        "hospital": [],
+        "medicine": [],
+        "diet": []
+    }
+     # Predict disease using modular predictor
+    best_match = predict_disease(",".join(symptom_list))
 
-    # Extract symptoms using NLP
-    symptoms = extract_symptoms(data.symptom)
-
-    # Fallback if NLP doesn't detect symptoms
-    if not symptoms:
-        symptoms = [s.strip().lower() for s in data.symptom.split(",")]
-
-        best_match = None
-    max_matches = 0
-
-    for disease in disease_dataset:
-
-        matches = 0
-
-        for symptom in symptoms:
-            if symptom in disease["symptoms"]:
-                matches += 1
-
-        if matches > max_matches:
-            max_matches = matches
-            best_match = disease
-
-    # If a disease is found, save it in chat history
+    
+    # If a disease is found
     if best_match:
+
+        specialist = get_specialist(best_match["disease"])
+        hospitals = get_hospitals(specialist)
+        medicines = get_medicine(best_match["disease"])
+        diet = get_diet(best_match["disease"])
 
         save_chat(data.symptom, best_match["disease"])
 
         return {
             "prediction": best_match["disease"],
+            "confidence": best_match["confidence"],
+            "specialist": specialist,
             "severity": best_match["severity"],
             "description": best_match["description"],
             "medical_suggestion": best_match["medical_suggestion"],
             "precaution": best_match["precaution"],
             "hospital_required": best_match["hospital_required"],
-            "hospital": best_match["hospital"]
+            "hospital": hospitals,
+            "medicine": medicines,
+            "diet": diet
         }
-
     # If no disease is found
     save_chat(data.symptom, "Consult Doctor")
 
@@ -210,9 +224,14 @@ def predict(data: SymptomRequest):
             "Do not ignore persistent or worsening symptoms."
         ],
         "hospital_required": False,
-        "hospital": []
+        "hospital": [],
+        "medicine": [
+            "Consult a doctor before taking any medicine."
+        ],
+        "diet": [
+            "Maintain a balanced and healthy diet."
+        ]
     }
-
 
 @app.get("/history")
 def history():

@@ -1,29 +1,15 @@
-from database import SessionLocal
-from models import ChatHistory
+from datetime import datetime
 
-# Save chat to MySQL
-def save_chat(user_id, symptoms, prediction):
-    db = SessionLocal()
+# Stores chat history in memory
+chat_history = []
 
-    chat = ChatHistory(
-        user_id=user_id,
-        symptoms=symptoms,
-        prediction=prediction
-    )
+def save_chat(symptoms, prediction):
+    chat_history.append({
+        "time": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
+        "symptoms": symptoms,
+        "prediction": prediction
+    })
 
-    db.add(chat)
-    db.commit()
-    db.close()
-
-
-# Get chat history from MySQL
-def get_history(user_id):
-    db = SessionLocal()
-
-    history = db.query(ChatHistory).filter(
-        ChatHistory.user_id == user_id
-    ).all()
-
-    db.close()
-
-    return history
+def get_history():
+    return chat_history
+ 
