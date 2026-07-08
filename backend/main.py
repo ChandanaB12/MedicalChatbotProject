@@ -183,8 +183,13 @@ def predict(data: SymptomRequest):
         "medicine": [],
         "diet": []
     }
-     # Predict disease using modular predictor
-    best_match = predict_disease(",".join(symptom_list))
+   # Predict disease using modular predictor
+    try:
+        best_match = predict_disease(",".join(symptom_list))
+    except Exception as e:
+         return {
+        "error": str(e)
+    }
 
     
     # If a disease is found
