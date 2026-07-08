@@ -1,34 +1,47 @@
-from database import SessionLocal
-from sqlalchemy import text
-
 def get_hospitals(specialist):
 
-    db = SessionLocal()
+    hospitals = {
+        "General Physician": [
+            {
+                "hospital_name": "Vijayanagara Institute of Medical Sciences (VIMS)",
+                "contact_number": "08392-242355",
+                "address": "Ballari, Karnataka",
+                "google_maps": "https://maps.google.com"
+            },
+            {
+                "hospital_name": "Ballari District Hospital",
+                "contact_number": "08392-270000",
+                "address": "Ballari, Karnataka",
+                "google_maps": "https://maps.google.com"
+            }
+        ],
 
-    result = db.execute(
-        text("""
-            SELECT hospital_name,
-                   contact_number,
-                   address,
-                   google_maps
-            FROM hospitals
-            WHERE specialist = :specialist
-        """),
-        {"specialist": specialist}
-    )
+        "Pulmonologist": [
+            {
+                "hospital_name": "KIMS Hospital",
+                "contact_number": "08392-250000",
+                "address": "Ballari, Karnataka",
+                "google_maps": "https://maps.google.com"
+            }
+        ],
 
-    hospitals = []
+        "Neurologist": [
+            {
+                "hospital_name": "Apollo Hospital",
+                "contact_number": "080-12345678",
+                "address": "Bengaluru, Karnataka",
+                "google_maps": "https://maps.google.com"
+            }
+        ],
 
-    for row in result:
-        hospitals.append({
-         
-    "hospital_name": row.hospital_name,
-    "contact_number": row.contact_number,
-    "address": row.address,
-    "google_maps": row.google_maps
- 
-        })
+        "Gastroenterologist": [
+            {
+                "hospital_name": "Manipal Hospital",
+                "contact_number": "080-22223333",
+                "address": "Bengaluru, Karnataka",
+                "google_maps": "https://maps.google.com"
+            }
+        ]
+    }
 
-    db.close()
-
-    return hospitals
+    return hospitals.get(specialist, [])
