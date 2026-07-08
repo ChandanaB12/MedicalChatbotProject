@@ -194,32 +194,33 @@ def predict(data: SymptomRequest):
     }
 
     
-   # If a disease is found
+       # If a disease is found
     if best_match:
-     try:
-        specialist = get_specialist(best_match["disease"])
-        hospitals = get_hospitals(specialist)
-        medicines = get_medicine(best_match["disease"])
-        diet = get_diet(best_match["disease"])
+        try:
+            specialist = get_specialist(best_match["disease"])
+            hospitals = get_hospitals(specialist)
+            medicines = get_medicine(best_match["disease"])
+            diet = get_diet(best_match["disease"])
 
-        save_chat(data.symptom, best_match["disease"])
+            save_chat(data.symptom, best_match["disease"])
 
-        return {
-            "prediction": best_match["disease"],
-            "confidence": best_match["confidence"],
-            "specialist": specialist,
-            "severity": best_match["severity"],
-            "description": best_match["description"],
-            "medical_suggestion": best_match["medical_suggestion"],
-            "precaution": best_match["precaution"],
-            "hospital_required": best_match["hospital_required"],
-            "hospital": hospitals,
-            "medicine": medicines,
-            "diet": diet
-        }
+            return {
+                "prediction": best_match["disease"],
+                "confidence": best_match["confidence"],
+                "specialist": specialist,
+                "severity": best_match["severity"],
+                "description": best_match["description"],
+                "medical_suggestion": best_match["medical_suggestion"],
+                "precaution": best_match["precaution"],
+                "hospital_required": best_match["hospital_required"],
+                "hospital": hospitals,
+                "medicine": medicines,
+                "diet": diet
+            }
 
-     except Exception as e:
-        return {"error": str(e)}
+        except Exception as e:
+            return {"error": str(e)}
+
     # If no disease is found
     save_chat(data.symptom, "Consult Doctor")
 
@@ -242,7 +243,6 @@ def predict(data: SymptomRequest):
             "Maintain a balanced and healthy diet."
         ]
     }
-
 @app.get("/history")
 def history():
     return get_history()
