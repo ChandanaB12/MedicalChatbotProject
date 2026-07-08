@@ -61,7 +61,7 @@ def get_diet(disease):
         "Hypertension": [
             "Reduce salt intake",
             "Eat fruits and vegetables",
-            "Avoid processed foods"
+            "Avoid processed foods",
             "Limit processed foods",
 "Choose low-sodium meals"
         ],
