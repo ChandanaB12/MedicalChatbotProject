@@ -9,14 +9,16 @@ from ml.predict_intent import predict_intent
 from emergency import check_emergency
 from disease_info import get_disease_info
 from chat_history import save_chat, get_history
-from database import SessionLocal
-from models import User
+from database import SessionLocal, engine
+from models import User,  Base
 from auth import RegisterUser,LoginUser
 from specialist import get_specialist
 from hospital import get_hospitals
 from medicine import get_medicine
 from diet import get_diet
 from disease_predictor import predict_disease
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
