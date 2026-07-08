@@ -196,7 +196,7 @@ def predict(data: SymptomRequest):
     
     # If a disease is found
     if best_match:
-
+    try:
         specialist = get_specialist(best_match["disease"])
         hospitals = get_hospitals(specialist)
         medicines = get_medicine(best_match["disease"])
@@ -216,6 +216,10 @@ def predict(data: SymptomRequest):
             "hospital": hospitals,
             "medicine": medicines,
             "diet": diet
+        }
+    except Exception as e:
+        return {
+            "error": str(e)
         }
     # If no disease is found
     save_chat(data.symptom, "Consult Doctor")
